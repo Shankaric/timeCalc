@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Time calculation</title>
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .container{
+            text-align:center;
+        }
+        body{
+          margin-top:10%;
+          background-color:#ac6aace3;
+        }
+    </style>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+  </head>
+  <body>
+    <div class="container">
+   
+	  From:<input type="time" id="timeOne" name="timeOne">
+    To:<input type="time" id="timeTwo"  name="timeTwo"><br><br>
+    <h3 id="timeDifference"></h3><br><br>
+    <button class="btn btn-primary" onclick=timeFunction();>Get time</button>
+    </div>
+    <script>
+        function timeFunction() {
+            // const getSeconds = s => s.split(":").reduce((acc, curr) => acc * 60 + +curr, 0);
+            // var seconds1 = getSeconds(document.getElementById("timeOne").value);
+            // var seconds2 = getSeconds(document.getElementById("timeTwo").value);
+
+            // var res = Math.abs(seconds2 - seconds1);
+            // console.log(res%3600);
+            // var hours = Math.floor(res / 60);
+            // var mintues = res % 60;
+            // console.log(mintues);
+        // const getSeconds = s => s.split(":").reduce((acc, curr) => acc * 60 + +curr, 0);
+            var seconds1 = document.getElementById("timeOne").value;
+            var seconds2 = document.getElementById("timeTwo").value;
+          //  var hour = seconds1.split(':')[0];
+          //  var minute = seconds1.split(':')[1];
+          //   var time1=Math.floor(((hour*60)+minute)/100);
+          //   timefirst=time1/60
+          //   console.log(time1);
+          //   var hour1 = seconds2.split(':')[0];
+          //  var minute2 = seconds2.split(':')[1];
+          //   var time2=Math.floor(((hour1*60)+minute2)/100);
+          //   timesecond=time2/60
+          //   console.log(time2);
+          // var result=(timefirst-timesecond);
+          //   console.log(result);
+            // var hours = Math.floor(res / 60);
+            // var mintues = res % 60;
+            // console.log(mintues); 
+           
+            var hour = (seconds1.split(':')[0]*60);
+            var minute = parseInt(seconds1.split(':')[1]);
+              // console.log(hour);
+            var time1=hour+minute;
+            console.log(time1);
+            var hour2 = seconds2.split(':')[0]*60;
+            var minute2 = parseInt(seconds2.split(':')[1]);
+              // console.log(hour);
+            var time2=hour2+minute2;
+            var res=(time1-time2);
+            console.log(time2);
+            console.log(res);
+
+            // var num = res;
+            var hours = (res / 60);
+            var rhours = Math.round(hours);
+            var minutes = (hours - rhours) * 60;
+            var rminutes = Math.round(minutes);
+            var result=rhours + 'hours ' + rminutes + 'minutes';
+            //   console.log(result);
+
+
+            document.getElementById("timeDifference").innerHTML =  Math.abs(rhours) + "hours " + Math.abs(rminutes) + "mintues" ;
+}
+    </script>
+  </body>
+</html>
